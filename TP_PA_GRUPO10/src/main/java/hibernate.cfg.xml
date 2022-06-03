@@ -13,7 +13,9 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         
         
-        <mapping class=""/>
+        <mapping class="ejercicio1.Usuario"/>
+        <mapping class="ejercicio1.DatosPersonales"/>
+        <mapping class="ejercicio1.Pais"/>
         
     </session-factory>
 </hibernate-configuration>
