@@ -11,13 +11,13 @@ import javax.persistence.OneToOne;
 @Entity
 public class Pais implements Serializable {
 	@Id
-	@Column(name="IdPais", nullable=false)
+	@Column(name="IdPais")
 	private int id;
 	
 	@Column(nullable=false)
 	private String nombre;
 	
-	@OneToOne(mappedBy="dni", fetch=FetchType.LAZY)
+	@OneToOne(mappedBy="pais", fetch=FetchType.EAGER)
 	private DatosPersonales datosPersonales;
 	
 	//Ctor sin parámetros
@@ -67,5 +67,4 @@ public class Pais implements Serializable {
 		
 		return auxiliar;
 	}
-	
 }

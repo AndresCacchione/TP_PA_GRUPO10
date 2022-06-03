@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class DatosPersonales implements Serializable {
 	@Id
-	@Column(nullable=false)
+	@Column
 	private int dni;
 	
 	@Column(nullable=false)
@@ -45,7 +45,7 @@ public class DatosPersonales implements Serializable {
 	@JoinColumn(name="IdPais")
 	private Pais pais;
 	
-	@OneToOne(mappedBy="dni", fetch=FetchType.LAZY)
+	@OneToOne(mappedBy="datosPersonales", fetch=FetchType.EAGER)
 	private Usuario usuario;
 	
 	
@@ -190,17 +190,16 @@ public class DatosPersonales implements Serializable {
 	public String toString() {
 		String auxiliar;
 		if (usuario != null) {
-			auxiliar = usuario.toString() + "Datos personales: dni: " + dni + ", apellido: " + apellido + ", nombre: " + nombre + ", fecha de nacimiento: " + fechaNacimiento
+			auxiliar = "Usuario: Dni: " + usuario.getId() + ", nombre de usuario: " + usuario.getNombreUsuario() + ", " + ", pass: " + usuario.getPass()
+					+ ", Datos personales: dni: " + dni + ", apellido: " + apellido + ", nombre: " + nombre + ", fecha de nacimiento: " + fechaNacimiento
 					+ ", genero: " + genero + ", celular: " + celular + ", email: " + email + ", domicilio: " + domicilio
-					+ ", código postal: " + codigoPostal + ", país: " + pais + ".";
+					+ ", código postal: " + codigoPostal + ", ID de país: " + pais.getId() + ", nombre de país: " + pais.getNombre() + ".";
 		} else {
 			auxiliar = "Usuario: Dni: " + dni + ", apellido: " + apellido + ", nombre: " + nombre + ", fecha de nacimiento: " + fechaNacimiento
 					+ ", genero: " + genero + ", celular: " + celular + ", email: " + email + ", domicilio: " + domicilio
-					+ ", código postal: " + codigoPostal + ", país: " + pais + ".";
+					+ ", código postal: " + codigoPostal + ", ID de país: " + pais.getId() + ", nombre de país: " + pais.getNombre() + ".";
 		}
 		
 		return auxiliar;
 	}
-	
-	
 }

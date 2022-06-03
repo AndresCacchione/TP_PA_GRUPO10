@@ -5,15 +5,18 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.TableGenerator;
 
 @Entity
 public class Usuario implements Serializable{
 	@Id
-	@Column(name="dni", nullable=false)
-	private int dni;
+	@Column(name="id_usuario")
+	private int id;
 	
 	@Column(nullable=false)
 	private String nombreUsuario;
@@ -33,7 +36,7 @@ public class Usuario implements Serializable{
 	//Ctor con parámetros
 	public Usuario(int id, String nombreUsuario, String pass, DatosPersonales datosPersonales) {
 		super();
-		this.dni = id;
+		this.id = id;
 		this.nombreUsuario = nombreUsuario;
 		this.pass = pass;
 		this.datosPersonales = datosPersonales;
@@ -41,11 +44,11 @@ public class Usuario implements Serializable{
 
 	//Getters y Setters
 	public int getId() {
-		return dni;
+		return id;
 	}
 
 	public void setId(int id) {
-		this.dni = id;
+		this.id = id;
 	}
 
 	public String getNombreUsuario() {
@@ -75,10 +78,8 @@ public class Usuario implements Serializable{
 	//toString
 	@Override
 	public String toString() {
-		return "Usuario: Nombre de Usuario: " + nombreUsuario + ", Contraseña: " + pass + ", datosPersonales="
+		return "Usuario: Nombre de Usuario: " + nombreUsuario + ", Contraseña: " + pass + ", datosPersonales= "
 				+ datosPersonales.toString() + ".";
 	}
-	
-	
 }
 
