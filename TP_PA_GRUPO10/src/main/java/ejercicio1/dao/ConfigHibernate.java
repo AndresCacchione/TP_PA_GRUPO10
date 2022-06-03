@@ -1,4 +1,4 @@
-package dao;
+package ejercicio1.dao;
  
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
