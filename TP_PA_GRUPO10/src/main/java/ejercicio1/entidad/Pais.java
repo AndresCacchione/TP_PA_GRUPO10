@@ -1,4 +1,4 @@
-package ejercicio1;
+package ejercicio1.entidad;
 
 import java.io.Serializable;
 
