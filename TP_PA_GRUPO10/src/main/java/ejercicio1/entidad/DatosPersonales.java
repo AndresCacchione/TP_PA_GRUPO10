@@ -1,7 +1,7 @@
 package ejercicio1.entidad;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -183,7 +183,6 @@ public class DatosPersonales implements Serializable {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-
 
 	//toString
 	@Override
