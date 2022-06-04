@@ -5,13 +5,16 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-@Entity
+@Entity(name="paises")
 public class Pais implements Serializable {
 	@Id
 	@Column(name="IdPais")
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(nullable=false)
@@ -26,9 +29,8 @@ public class Pais implements Serializable {
 	}
 	
 	//Ctor con parámetros
-	public Pais(int id, String nombre) {
+	public Pais(String nombre) {
 		super();
-		this.id = id;
 		this.nombre = nombre;
 	}
 	
@@ -36,10 +38,7 @@ public class Pais implements Serializable {
 	public int getId() {
 		return id;
 	}
-	
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public String getNombre() {
 		return nombre;
 	}

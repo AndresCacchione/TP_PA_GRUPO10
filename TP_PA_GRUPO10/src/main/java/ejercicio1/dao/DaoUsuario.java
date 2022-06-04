@@ -5,7 +5,6 @@ import java.sql.Date;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import dao.ConfigHibernate;
 import ejercicio1.entidad.Usuario;
 
 public class DaoUsuario {
@@ -35,6 +34,21 @@ public class DaoUsuario {
 		session.save(usuario);		
 		session.getTransaction().commit();
 		cHibernate.cerrarSession();
+	}
+	
+	public static Usuario GetUsuarioByID(int id) {
+		cHibernate = new ConfigHibernate();
+		session = cHibernate.abrirConexion();
+		Query query = session.createQuery("FROM Usuario u WHERE u.id = :id");
+		query.setParameter("id", id);
+		
+		Usuario usuario = (Usuario)query.uniqueResult();
+		
+		usuario.getDatosPersonales().setFechaNacimiento(formatDate(usuario.getDatosPersonales().getFechaNacimiento()));
+		
+		cHibernate.cerrarSession();
+		
+		return usuario;
 	}
 	
 	protected static Date formatDate(Date date) {

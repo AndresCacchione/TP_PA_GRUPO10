@@ -16,7 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-@Entity
+@Entity(name="inscripciones")
 public class Inscripcion implements Serializable{
 	
 	@Id
@@ -32,19 +32,18 @@ public class Inscripcion implements Serializable{
 	private Date fechaInscripcion;
 	
 	@Column(nullable=false)
-	private float costo;
+	private double costo;
 	
 	@OneToMany(fetch=FetchType.LAZY)
-	@JoinColumn(name="id_inscripcion")
+	@JoinColumn(name="id_inscripcion", nullable=true)
 	private List<Pago> listaPagos;
 	
 	//Constructores
 	public Inscripcion() {
 	}
 	
-	public Inscripcion(int id, Usuario usuario, Date fechaInscripcion, float costo, ArrayList<Pago> listaPagos) {
+	public Inscripcion(Usuario usuario, Date fechaInscripcion, double costo, ArrayList<Pago> listaPagos) {
 		super();
-		this.id = id;
 		this.usuarioInscripto = usuario;
 		this.fechaInscripcion = fechaInscripcion;
 		this.costo = costo;
@@ -55,9 +54,6 @@ public class Inscripcion implements Serializable{
 	//Getters & Setters
 	public int getId() {
 		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
 	}
 	public Usuario getUsuario() {
 		return usuarioInscripto;
@@ -71,7 +67,7 @@ public class Inscripcion implements Serializable{
 	public void setFechaInscripcion(Date fechaInscripcion) {
 		this.fechaInscripcion = fechaInscripcion;
 	}
-	public float getCosto() {
+	public double getCosto() {
 		return costo;
 	}
 	public void setCosto(float costo) {
@@ -87,7 +83,7 @@ public class Inscripcion implements Serializable{
 	//toString
 	@Override
 	public String toString() {
-		String datosInscripcion =  "Inscripciones: id= " + id + ", Usuario inscripto: " + usuarioInscripto + ", fechaInscripcion: " + 
+		String datosInscripcion =  "Inscripciones: id: " + id + ", Usuario inscripto: " + usuarioInscripto + ", fechaInscripcion: " + 
 									fechaInscripcion + ", costo: " + costo + " .";
 		for (Pago pago : listaPagos) {
 			datosInscripcion.concat(pago.toString() + " - ");

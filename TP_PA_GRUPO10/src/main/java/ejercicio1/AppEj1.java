@@ -17,7 +17,7 @@ public class AppEj1 {
 		en la base de datos y debe haber un main en su interior que inserte un registro en la
 		base de datos y luego lo lea.*/
 		
-		Pais pais = new Pais(0, "Argentina");
+		Pais pais = new Pais("Argentina");
 		DatosPersonales datosPersonales = new DatosPersonales(123456789, "Cosme", "Fulanito", new Date(1980,10,20), 'M', 1111111111, "cosme.fulanito@gmail.com", "Av. Springfield 1234", "1313456" , pais);
 		Usuario usuario = new Usuario(datosPersonales.getDni(), "cosmeFulanito", "cosme_el_mejor_2022", datosPersonales);
 		

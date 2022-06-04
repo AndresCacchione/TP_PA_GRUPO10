@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.TableGenerator;
 
-@Entity
+@Entity(name="usuarios")
 public class Usuario implements Serializable{
 	@Id
 	@Column(name="id_usuario")
