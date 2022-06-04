@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -24,7 +25,7 @@ public class Inscripcion implements Serializable{
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
 	
-	@ManyToOne(fetch= FetchType.LAZY)
+	@ManyToOne(cascade= {CascadeType.ALL}, fetch= FetchType.LAZY)
 	@JoinColumn(name="idUsuario")
 	private Usuario usuarioInscripto;
 	
@@ -34,7 +35,7 @@ public class Inscripcion implements Serializable{
 	@Column(nullable=false)
 	private double costo;
 	
-	@OneToMany(fetch=FetchType.LAZY)
+	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.LAZY)
 	@JoinColumn(name="id_inscripcion", nullable=true)
 	private List<Pago> listaPagos;
 	
@@ -83,8 +84,8 @@ public class Inscripcion implements Serializable{
 	//toString
 	@Override
 	public String toString() {
-		String datosInscripcion =  "Inscripciones: id: " + id + ", Usuario inscripto: " + usuarioInscripto + ", fechaInscripcion: " + 
-									fechaInscripcion + ", costo: " + costo + " .";
+		String datosInscripcion =  "Inscripciones: id: " + id + ", " + usuarioInscripto + ", fechaInscripcion: " + 
+									fechaInscripcion + ", costo: " + costo + " .-";
 		for (Pago pago : listaPagos) {
 			datosInscripcion.concat(pago.toString() + " - ");
 		}

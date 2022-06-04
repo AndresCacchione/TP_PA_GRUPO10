@@ -15,7 +15,7 @@ public class DaoInscripcion {
 	public static void ReadInscripcionPorID(int id) {
 		cHibernate = new ConfigHibernate();
 		session = cHibernate.abrirConexion();
-		Query query = session.createQuery("FROM entidad.Inscripcion i WHERE i.id = :id");
+		Query query = session.createQuery("FROM ejercicio2.entidad.Inscripcion i WHERE i.id = :id");
 		query.setParameter("id", id);
 		
 		Inscripcion inscripcion = (Inscripcion)query.uniqueResult();
@@ -30,7 +30,7 @@ public class DaoInscripcion {
 		cHibernate = new ConfigHibernate();
 		session = cHibernate.abrirConexion();
 		session.beginTransaction();
-		session.save(inscripcion);		
+		session.save(inscripcion);
 		session.getTransaction().commit();
 		cHibernate.cerrarSession();
 	}

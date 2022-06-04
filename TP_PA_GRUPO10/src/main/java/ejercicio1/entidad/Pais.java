@@ -61,7 +61,7 @@ public class Pais implements Serializable {
 		if (datosPersonales != null) {
 			auxiliar = datosPersonales.toString() + ", Id de país: " + id + ", nombre de país: " + nombre + ".";
 		} else {
-			auxiliar = " Id de país: " + id + ", nombre de país: " + nombre + ".";
+			auxiliar = " Id de país: " + id + ", nombre de país: " + nombre;
 		}
 		
 		return auxiliar;

@@ -18,6 +18,7 @@ public class AppEj2 {
 		mismas en la base de datos y debe haber un main en su interior que inserte un
 		registro en la base de datos y luego lo lea.*/
 		
+		//Ejecutar primero ejercicio1 para tener cargado el usuario
 		Usuario usuario = DaoUsuario.GetUsuarioByID(123456789);
 		
 		ArrayList<Pago> pagos = new ArrayList<Pago>();
@@ -28,10 +29,7 @@ public class AppEj2 {
 		
 		Inscripcion inscripcion = new Inscripcion(usuario, new Date(2019, 10, 10), 20000, pagos);
 		DaoInscripcion.Add(inscripcion);
-		
-		
-		
-
+		DaoInscripcion.ReadInscripcionPorID(1);
+		//Ejecutar primero ejercicio1 para tener cargado el usuario
 	}
-
 }

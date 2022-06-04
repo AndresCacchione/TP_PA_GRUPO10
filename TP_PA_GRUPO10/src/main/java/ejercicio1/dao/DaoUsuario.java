@@ -1,7 +1,7 @@
 package ejercicio1.dao;
 
 import java.sql.Date;
-
+import dao.ConfigHibernate; 
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -15,7 +15,7 @@ public class DaoUsuario {
 	public static void ReadUsuarioByID(int id) {
 		cHibernate = new ConfigHibernate();
 		session = cHibernate.abrirConexion();
-		Query query = session.createQuery("FROM Usuario u WHERE u.id = :id");
+		Query query = session.createQuery("FROM ejercicio1.entidad.Usuario u WHERE u.id = :id");
 		query.setParameter("id", id);
 		
 		Usuario usuario = (Usuario)query.uniqueResult();
@@ -39,7 +39,7 @@ public class DaoUsuario {
 	public static Usuario GetUsuarioByID(int id) {
 		cHibernate = new ConfigHibernate();
 		session = cHibernate.abrirConexion();
-		Query query = session.createQuery("FROM Usuario u WHERE u.id = :id");
+		Query query = session.createQuery("FROM ejercicio1.entidad.Usuario u WHERE u.id = :id");
 		query.setParameter("id", id);
 		
 		Usuario usuario = (Usuario)query.uniqueResult();
