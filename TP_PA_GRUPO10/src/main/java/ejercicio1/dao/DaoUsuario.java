@@ -5,6 +5,7 @@ import java.sql.Date;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import dao.ConfigHibernate;
 import ejercicio1.entidad.Usuario;
 
 public class DaoUsuario {

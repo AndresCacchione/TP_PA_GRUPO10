@@ -15,5 +15,7 @@
         <mapping class="ejercicio1.entidad.Pais"/>
         <mapping class="ejercicio1.entidad.DatosPersonales"/>
         <mapping class="ejercicio1.entidad.Usuario"/>
+        <mapping class="ejercicio2.entidad.Inscripcion"/>
+        <mapping class="ejercicio2.entidad.Pago"/>
     </session-factory>
 </hibernate-configuration>
