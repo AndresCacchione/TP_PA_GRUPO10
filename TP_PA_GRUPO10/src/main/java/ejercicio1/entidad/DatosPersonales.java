@@ -1,7 +1,7 @@
 package ejercicio1.entidad;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -184,13 +184,12 @@ public class DatosPersonales implements Serializable {
 		this.usuario = usuario;
 	}
 
-
 	//toString
 	@Override
 	public String toString() {
 		String auxiliar;
 		if (usuario != null) {
-			auxiliar = "Usuario: Dni: " + usuario.getId() + ", nombre de usuario: " + usuario.getNombreUsuario() + ", " + ", pass: " + usuario.getPass()
+			auxiliar = "Usuario: Dni: " + usuario.getId() + ", nombre de usuario: " + usuario.getNombreUsuario() + ", pass: " + usuario.getPass()
 					+ ", Datos personales: dni: " + dni + ", apellido: " + apellido + ", nombre: " + nombre + ", fecha de nacimiento: " + fechaNacimiento
 					+ ", genero: " + genero + ", celular: " + celular + ", email: " + email + ", domicilio: " + domicilio
 					+ ", código postal: " + codigoPostal + ", ID de país: " + pais.getId() + ", nombre de país: " + pais.getNombre() + ".";

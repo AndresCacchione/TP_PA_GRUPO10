@@ -1,8 +1,11 @@
 package ejercicio1.dao;
 
+import java.sql.Date;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import dao.ConfigHibernate;
 import ejercicio1.entidad.Usuario;
 
 public class DaoUsuario {
@@ -18,6 +21,7 @@ public class DaoUsuario {
 		
 		Usuario usuario = (Usuario)query.uniqueResult();
 		
+		usuario.getDatosPersonales().setFechaNacimiento(formatDate(usuario.getDatosPersonales().getFechaNacimiento()));
 		System.err.println("Usuario con id " + id +  ": ");
 		System.out.print(usuario.getDatosPersonales().getPais().toString());
 		
@@ -31,5 +35,11 @@ public class DaoUsuario {
 		session.save(usuario);		
 		session.getTransaction().commit();
 		cHibernate.cerrarSession();
+	}
+	
+	protected static Date formatDate(Date date) {
+		date.setMonth(date.getMonth()-1);
+		date.setYear(date.getYear()-1900);
+		return date;
 	}
 }
