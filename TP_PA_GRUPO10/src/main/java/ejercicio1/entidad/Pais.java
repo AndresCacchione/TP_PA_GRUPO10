@@ -1,4 +1,4 @@
-package ejercicio1;
+package ejercicio1.entidad;
 
 import java.io.Serializable;
 
@@ -11,13 +11,13 @@ import javax.persistence.OneToOne;
 @Entity
 public class Pais implements Serializable {
 	@Id
-	@Column(name="IdPais", nullable=false)
+	@Column(name="IdPais")
 	private int id;
 	
 	@Column(nullable=false)
 	private String nombre;
 	
-	@OneToOne(mappedBy="dni", fetch=FetchType.LAZY)
+	@OneToOne(mappedBy="pais", fetch=FetchType.EAGER)
 	private DatosPersonales datosPersonales;
 	
 	//Ctor sin parámetros
@@ -60,12 +60,11 @@ public class Pais implements Serializable {
 	public String toString() {
 		String auxiliar;
 		if (datosPersonales != null) {
-			auxiliar = datosPersonales.toString() + "Id de país: " + id + ", nombre de país: " + nombre + ".";
+			auxiliar = datosPersonales.toString() + ", Id de país: " + id + ", nombre de país: " + nombre + ".";
 		} else {
-			auxiliar = "Id de país: " + id + ", nombre de país: " + nombre + ".";
+			auxiliar = " Id de país: " + id + ", nombre de país: " + nombre + ".";
 		}
 		
 		return auxiliar;
 	}
-	
 }
