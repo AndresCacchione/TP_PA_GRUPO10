@@ -5,27 +5,29 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name="pagos")
 public class Pago implements Serializable{
 	@Id
 	@Column(name="id_pago")
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(name="fecha_pago", nullable=false)
 	private Date fecha;
 	
 	@Column(nullable=false)
-	private float importe;
+	private double importe;
 	
 	//Constructores
 	Pago (){	
 	}
 
-	public Pago(int id, Date fecha, float importe) {
+	public Pago(Date fecha, double importe) {
 		super();
-		this.id = id;
 		this.fecha = fecha;
 		this.importe = importe;
 	}
@@ -36,10 +38,6 @@ public class Pago implements Serializable{
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public Date getFecha() {
 		return fecha;
 	}
@@ -48,7 +46,7 @@ public class Pago implements Serializable{
 		this.fecha = fecha;
 	}
 
-	public float getImporte() {
+	public double getImporte() {
 		return importe;
 	}
 

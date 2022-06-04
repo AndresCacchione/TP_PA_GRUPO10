@@ -13,7 +13,7 @@ public class ConfigHibernate {
     
     public ConfigHibernate() {
         Configuration configuration = new Configuration();
-        configuration.configure();
+        configuration.configure("hibernate.cfg.xml");
         ServiceRegistry serviceregistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
         sessionFactory = configuration.buildSessionFactory(serviceregistry);
     }
