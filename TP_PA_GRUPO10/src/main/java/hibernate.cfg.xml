@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.password">edumaster</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/TP_PA_GRUPO10?createDatabaseIfNotExist=true</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.default_schema">TP_PA_GRUPO10</property>
@@ -19,6 +19,9 @@
         <mapping class="ejercicio1.entidad.Usuario"/>
         <mapping class="ejercicio2.entidad.Inscripcion"/>
         <mapping class="ejercicio2.entidad.Pago"/>
+        
+         <mapping class="ejercicio3.entidad.Curso"/>
+          <mapping class="ejercicio3.entidad.Nivel"/>
         
     </session-factory>
 </hibernate-configuration>
