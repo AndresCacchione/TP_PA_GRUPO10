@@ -22,5 +22,8 @@
         <mapping class="ejercicio4.entidad.Idioma"/>
         <mapping class="ejercicio4.entidad.Clase"/>
         
+         <mapping class="ejercicio3.entidad.Curso"/>
+         <mapping class="ejercicio3.entidad.Nivel"/>
+        
     </session-factory>
 </hibernate-configuration>
